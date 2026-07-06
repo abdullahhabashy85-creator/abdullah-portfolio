@@ -1,0 +1,20 @@
+HOW TO EDIT YOUR PORTFOLIO
+
+1. Open index.html
+2. Find the Projects section.
+3. Change Project Title, description, tools, and View Project link.
+
+To add dashboard images
+
+1. Save the image in the same folder.
+2. Use English file names, for example sales-dashboard.png
+3. Replace:
+<div class="project-image placeholder">Dashboard Image</div>
+
+With:
+<img class="project-image" src="sales-dashboard.png" alt="Sales dashboard project" />
+
+To change CV file
+
+Replace Abdullah_Habashy_ATS_CV.pdf with your updated PDF.
+Keep the same file name.
