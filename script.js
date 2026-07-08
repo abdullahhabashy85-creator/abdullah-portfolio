@@ -8,3 +8,9 @@ links.forEach((link) => {
     target.scrollIntoView({ behavior: "smooth" });
   });
 });
+const projectsCount = document.querySelectorAll(".projects-grid .project-card").length;
+const projectsCountElement = document.getElementById("projects-count");
+
+if (projectsCountElement) {
+  projectsCountElement.textContent = projectsCount;
+}
