@@ -8,11 +8,11 @@ links.forEach((link) => {
     target.scrollIntoView({ behavior: "smooth" });
   });
 });
-document.addEventListener("DOMContentLoaded", function () {
-  const projects = document.querySelectorAll("article.project-card");
-  const projectsCountElement = document.getElementById("projects-count");
+window.addEventListener("load", function () {
+  const projectsCount = document.querySelectorAll(".project-card").length;
+  const counter = document.getElementById("projects-count");
 
-  if (projectsCountElement) {
-    projectsCountElement.textContent = projects.length;
+  if (counter) {
+    counter.textContent = projectsCount;
   }
 });
