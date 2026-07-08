@@ -8,7 +8,6 @@ links.forEach((link) => {
     target.scrollIntoView({ behavior: "smooth" });
   });
 });
-
 document.addEventListener("DOMContentLoaded", function () {
   const projects = document.querySelectorAll(".projects-grid .project-card");
   const projectsCountElement = document.getElementById("projects-count");
