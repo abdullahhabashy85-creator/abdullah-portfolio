@@ -269,3 +269,20 @@ footer {
 .nav-links a:hover {
   color: var(--accent-2);
 }
+.case-study-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px 0;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+}
+
+.case-study-image:hover {
+  transform: scale(1.01);
+  transition: transform 0.25s ease;
+}
+
+.section .wide {
+  margin-bottom: 28px;
+}
