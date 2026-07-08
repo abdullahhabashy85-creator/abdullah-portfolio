@@ -9,7 +9,7 @@ links.forEach((link) => {
   });
 });
 document.addEventListener("DOMContentLoaded", function () {
-  const projects = document.querySelectorAll(".projects-grid .project-card");
+  const projects = document.querySelectorAll("article.project-card");
   const projectsCountElement = document.getElementById("projects-count");
 
   if (projectsCountElement) {
