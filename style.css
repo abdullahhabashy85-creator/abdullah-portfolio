@@ -286,3 +286,95 @@ footer {
 .section .wide {
   margin-bottom: 28px;
 }
+/* Smooth scroll reveal animation */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(38px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.reveal-left {
+  transform: translateX(-42px);
+}
+
+.reveal.reveal-right {
+  transform: translateX(42px);
+}
+
+.reveal.reveal-scale {
+  transform: scale(0.94);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateX(0) translateY(0) scale(1);
+}
+
+/* حركة متدرجة للكروت */
+
+.reveal-delay-1 {
+  transition-delay: 0.08s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.16s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.24s;
+}
+
+.reveal-delay-4 {
+  transition-delay: 0.32s;
+}
+
+/* حركة الأزرار */
+
+.btn {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+/* حركة صور المشاريع */
+
+.project-image,
+.case-study-image {
+  transition:
+    transform 0.45s ease,
+    filter 0.45s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.025);
+}
+
+.case-study-image:hover {
+  transform: scale(1.01);
+}
+
+/* احترام إعدادات تقليل الحركة */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .reveal.reveal-left,
+  .reveal.reveal-right,
+  .reveal.reveal-scale {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
