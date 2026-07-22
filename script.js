@@ -487,3 +487,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 })();
+
+/* ========================================
+   PREMIUM PROJECT CARD STAGGER
+   Automatically supports newly added cards.
+======================================== */
+document.addEventListener("DOMContentLoaded", function () {
+  const projectCards = document.querySelectorAll(".projects-grid .project-card");
+
+  projectCards.forEach(function (card, index) {
+    const delay = Math.min(index * 110, 660);
+    card.style.setProperty("--project-reveal-delay", `${delay}ms`);
+  });
+});
