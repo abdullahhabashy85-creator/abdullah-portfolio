@@ -25,28 +25,83 @@
   </header>
 
   <main>
-    <section id="home" class="hero">
+    <section id="home" class="hero hero-premium">
+      <div class="hero-orb hero-orb-one" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-two" aria-hidden="true"></div>
+
       <div class="hero-content">
-        <p class="eyebrow">Data Analyst</p>
-        <h1>Abdullah Mohamed Habashy Zaki</h1>
+        <div class="hero-status">
+          <span class="status-dot" aria-hidden="true"></span>
+          Available for freelance projects
+        </div>
+
+        <p class="eyebrow">Data Analyst &amp; BI Developer</p>
+        <h1>
+          Turning data into
+          <span class="hero-gradient-text">business decisions.</span>
+        </h1>
+
         <p class="hero-text">
-          I turn raw business data into clear dashboards, KPIs, insights, and actionable recommendations using Excel, Power Query, Power Pivot, Power BI, DAX, and data modeling.
+          I transform raw business data into clear dashboards, meaningful KPIs,
+          and actionable insights using Excel, Power Query, Power BI, DAX,
+          and data modeling.
         </p>
+
         <div class="hero-actions">
-          <a class="btn primary" href="#projects">View Projects</a>
-          <a class="btn secondary" href="Abdullah_Habashy_ATS_CV.pdf" target="_blank">Download CV</a>
+          <a class="btn primary hero-primary-btn" href="#projects">
+            View My Projects
+            <span aria-hidden="true">→</span>
+          </a>
+          <a class="btn secondary hero-secondary-btn" href="Abdullah_Habashy_ATS_CV.pdf" target="_blank" rel="noopener">
+            Download CV
+          </a>
+        </div>
+
+        <div class="hero-proof" aria-label="Portfolio highlights">
+          <div class="hero-proof-item">
+            <strong>1</strong>
+            <span>Year Experience</span>
+          </div>
+          <div class="hero-proof-divider" aria-hidden="true"></div>
+          <div class="hero-proof-item">
+            <strong id="projects-count">0</strong>
+            <span>Completed Projects</span>
+          </div>
+          <div class="hero-proof-divider" aria-hidden="true"></div>
+          <div class="hero-proof-item">
+            <strong>5+</strong>
+            <span>Core BI Skills</span>
+          </div>
         </div>
       </div>
 
-      <div class="hero-card">
-        <img src="profile.png" alt="Abdullah Habashy profile photo" class="profile-img" />
-        <div>
-          <h2>1 Year</h2>
-          <p>Hands-on data analysis experience</p>
+      <div class="hero-card hero-visual">
+        <div class="hero-image-shell">
+          <div class="hero-image-glow" aria-hidden="true"></div>
+          <img src="profile.png" alt="Abdullah Habashy, Data Analyst" class="profile-img" />
+
+          <div class="hero-floating-card hero-floating-card-top">
+            <span class="floating-icon" aria-hidden="true">↗</span>
+            <div>
+              <strong>Actionable Insights</strong>
+              <span>From complex datasets</span>
+            </div>
+          </div>
+
+          <div class="hero-floating-card hero-floating-card-bottom">
+            <span class="floating-icon" aria-hidden="true">◆</span>
+            <div>
+              <strong>Power BI &amp; Excel</strong>
+              <span>Interactive dashboards</span>
+            </div>
+          </div>
         </div>
-        <div>
-         <h2><span id="projects-count">0</span> Projects</h2>
-         <p>Freelance data analysis dashboards</p>
+
+        <div class="hero-tool-strip" aria-label="Main tools">
+          <span>Power BI</span>
+          <span>Excel</span>
+          <span>DAX</span>
+          <span>Power Query</span>
         </div>
       </div>
     </section>
