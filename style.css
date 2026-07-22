@@ -1233,7 +1233,7 @@ html[data-theme="light"] .case-study-image.reveal-from-right.is-visible {
 }
 
 .hero-floating-card-top { top: 11%; left: -44px; }
-.hero-floating-card-bottom { right: -40px; bottom: 11%; animation-delay: -2.4s; }
+.hero-floating-card-bottom { right: 10px; bottom: 11%; animation-delay: -2.4s; }
 
 .floating-icon {
   width: 34px;
@@ -1332,7 +1332,7 @@ html[data-theme="light"] .hero-tool-strip span {
   }
   .hero-premium h1 { letter-spacing: -2.4px; }
   .hero-floating-card-top { left: -20px; }
-  .hero-floating-card-bottom { right: -18px; }
+  .hero-floating-card-bottom { right: 8px; }
 }
 
 @media (max-width: 900px) {
@@ -1363,7 +1363,7 @@ html[data-theme="light"] .hero-tool-strip span {
   .hero-premium .profile-img { min-height: 400px; }
   .hero-floating-card { max-width: 175px; padding: 10px 11px; }
   .hero-floating-card-top { left: -5px; top: 8%; }
-  .hero-floating-card-bottom { right: -5px; bottom: 8%; }
+  .hero-floating-card-bottom { right: 6px; bottom: 8%; }
   .hero-floating-card strong { font-size: 11px; }
   .hero-floating-card span { font-size: 9px; }
   .floating-icon { width: 29px; height: 29px; flex-basis: 29px; }
