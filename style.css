@@ -984,7 +984,7 @@ html[data-theme="light"] .case-study-image.reveal-from-right.is-visible {
   isolation: isolate;
   min-height: calc(100vh - 81px);
   padding-top: 72px;
-  padding-bottom: 72px;
+  padding-bottom: 90px;
   grid-template-columns: minmax(0, 1.12fr) minmax(340px, 0.88fr);
   gap: clamp(42px, 6vw, 78px);
   overflow: hidden;
@@ -993,13 +993,27 @@ html[data-theme="light"] .case-study-image.reveal-from-right.is-visible {
 .hero-premium::before {
   content: "";
   position: absolute;
-  inset: 6% 22px auto;
-  height: 72%;
+
+  top: 18px;
+  right: 8px;
+  bottom: 18px;
+  left: 8px;
+
   z-index: -3;
   border-radius: 48px;
+
   background:
-    linear-gradient(135deg, rgba(59, 130, 246, 0.055), transparent 42%),
-    linear-gradient(315deg, rgba(56, 189, 248, 0.035), transparent 48%);
+    linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.055),
+      transparent 42%
+    ),
+    linear-gradient(
+      315deg,
+      rgba(56, 189, 248, 0.035),
+      transparent 48%
+    );
+
   border: 1px solid rgba(148, 163, 184, 0.07);
   pointer-events: none;
 }
