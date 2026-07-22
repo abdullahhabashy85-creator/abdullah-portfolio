@@ -867,3 +867,30 @@ body,
     transition: none;
   }
 }
+
+/* ========================================
+   FIX: KEEP REVEAL ANIMATIONS WITH THEME TRANSITIONS
+======================================== */
+.reveal.card,
+.reveal.project-card,
+.reveal.timeline-item,
+.reveal.contact-card {
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal.card,
+  .reveal.project-card,
+  .reveal.timeline-item,
+  .reveal.contact-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
