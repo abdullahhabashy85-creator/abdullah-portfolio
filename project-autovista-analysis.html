@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoVista Dealership Analytics | Abdullah Habashy</title>
+  <meta name="description" content="Case study of AutoVista Used Cars Dealership Analytics by Abdullah Habashy. Power BI dashboard for revenue analysis, pricing depreciation, car specs, and accident condition history." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="logo" href="index.html" aria-label="Home">
+        <img src="favicon.png" alt="Abdullah Habashy Logo">
+      </a>
+      <div class="nav-links">
+        <a href="index.html#projects">← Back to Projects</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="section">
+    <div class="section-title">
+      <p>Case Study</p>
+      <h2>AutoVista — Used Cars Dealership Analytics</h2>
+    </div>
+
+    <!-- Overview Card -->
+    <div class="card wide">
+      <h3>Project Overview</h3>
+      <p>
+        <strong>AutoVista</strong> is an end-to-end Business Intelligence solution designed for a commercial used-car dealership. The business needed actionable insights to optimize inventory allocation, understand pricing depreciation, evaluate vehicle specs demand, and minimize financial risks associated with accident history.
+      </p>
+      <p>
+        By connecting sales, specifications, and service history datasets, this interactive multi-page Power BI dashboard empowers executive managers, inventory buyers, and sales teams to make data-driven pricing and stock decisions.
+      </p>
+
+      <div class="tags" style="margin-top: 18px;">
+        <span>Power BI</span>
+        <span>Power Query</span>
+        <span>DAX</span>
+        <span>Data Modeling</span>
+        <span>Automotive Analytics</span>
+        <span>KPI Dashboard</span>
+      </div>
+    </div>
+
+    <!-- Key Metrics Grid -->
+    <div class="grid skills-grid" style="margin-bottom: 28px;">
+      <div class="card">
+        <h3>$57.88M</h3>
+        <p>Total Revenue</p>
+      </div>
+      <div class="card">
+        <h3>4,700</h3>
+        <p>Cars Sold</p>
+      </div>
+      <div class="card">
+        <h3>$12.31K</h3>
+        <p>Avg. Selling Price</p>
+      </div>
+      <div class="card">
+        <h3>35%</h3>
+        <p>Accident Rate</p>
+      </div>
+    </div>
+
+    <!-- Page 1: Executive Overview -->
+    <div class="card wide">
+      <h3>1. Executive Overview</h3>
+      <p>
+        Presents high-level business performance across sales revenue, top-selling car brands, regional state concentration, and body style breakdown.
+      </p>
+      <ul>
+        <li><strong>Top Revenue Drivers:</strong> Mercedes-Benz led total sales with $9.8M, followed by BMW ($8.6M) and Audi ($8.6M).</li>
+        <li><strong>Body Style Concentration:</strong> SUVs and Sedans dominate sales revenue at $31.65M (54.68%) and $21.45M (37.06%) respectively.</li>
+        <li><strong>Geographic Performance:</strong> Top states include Georgia ($5.9M), California ($5.3M), and Texas ($5.3M).</li>
+      </ul>
+      <img src="autovista-executive.png" alt="AutoVista Executive Overview Dashboard" class="case-study-image" />
+    </div>
+
+    <!-- Page 2: Pricing & Valuation -->
+    <div class="card wide">
+      <h3>2. Pricing & Valuation</h3>
+      <p>
+        Analyzes vehicle price depreciation against mileage, age, fuel types, and the financial impact of accident records.
+      </p>
+      <ul>
+        <li><strong>Accident Value Loss:</strong> Cars without accidents average $15.56K, while cars with accident history average $6.29K (an average price drop of <strong>$9.27K</strong>).</li>
+        <li><strong>Age Depreciation:</strong> Sales peak strongly for vehicles within 1–5 years of age ($8.3M to $6.0M) and drop significantly after 10 years.</li>
+        <li><strong>Drivetrain Preferences:</strong> Petrol-engine Front-Wheel Drive (FWD) and All-Wheel Drive (AWD) represent the largest revenue share.</li>
+      </ul>
+      <img src="autovista-pricing.png" alt="AutoVista Pricing & Valuation Dashboard" class="case-study-image" />
+    </div>
+
+    <!-- Page 3: Specs & Performance -->
+    <div class="card wide">
+      <h3>3. Specs & Performance</h3>
+      <p>
+        Explores technical specifications including horsepower, engine size, fuel efficiency, and transmission preferences.
+      </p>
+      <ul>
+        <li><strong>Transmission Dominance:</strong> Automatic vehicles heavily dominate customer purchases at <strong>84.88% ($49.13M)</strong> of total revenue.</li>
+        <li><strong>Vehicle Averages:</strong> Average Horsepower: 198 HP | Average Engine Size: 2.38L | Avg. Yearly Mileage: 9,991 miles.</li>
+        <li><strong>Fuel Type Distribution:</strong> High preference for Hybrid/Petrol variants across all major makes.</li>
+      </ul>
+      <img src="autovista-specs.png" alt="AutoVista Specs & Performance Dashboard" class="case-study-image" />
+    </div>
+
+    <!-- Page 4: History & Condition -->
+    <div class="card wide">
+      <h3>4. History & Condition</h3>
+      <p>
+        Evaluates service records, owner counts, and maintenance compliance to measure customer confidence and resale stability.
+      </p>
+      <ul>
+        <li><strong>Maintenance Breakdown:</strong> 1,606 cars had Full Service history, maintaining a competitive average mileage of ~114.8K miles.</li>
+        <li><strong>Owner History:</strong> Average number of previous owners is 2 per car across the fleet.</li>
+      </ul>
+      <img src="autovista-history.png" alt="AutoVista History & Condition Dashboard" class="case-study-image" />
+    </div>
+
+    <!-- Strategic Recommendations -->
+    <div class="card wide">
+      <h3>Strategic Business Recommendations</h3>
+      <ul>
+        <li><strong>Inventory Sourcing:</strong> Allocate 80%+ of procurement budget toward Automatic SUV and Sedan models aged 1–5 years.</li>
+        <li><strong>Risk-Adjusted Pricing:</strong> Replace flat price reductions on accident vehicles with a multi-tiered technical inspection score to recover value on minor-damage cars.</li>
+        <li><strong>Certified Pre-Owned (CPO) Program:</strong> Launch a CPO badge for vehicles with Full Service history to justify premium pricing and increase buyer trust.</li>
+        <li><strong>Regional Expansion:</strong> Increase inventory and marketing in top-performing markets (GA, CA, TX).</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 Abdullah Habashy. Data Analyst Portfolio.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
