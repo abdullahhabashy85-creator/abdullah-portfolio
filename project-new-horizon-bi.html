@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Horizon Academy – End-to-End BI &amp; Data Warehouse Case Study | Abdullah Habashy</title>
+  <meta name="description" content="End-to-End Business Intelligence and Data Warehouse architecture for New Horizon Academy using FastAPI, SQL Server, SSIS ETL Pipelines, Star Schema, and Power BI." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="logo" href="index.html#home" aria-label="Home">
+        <img src="favicon.png" alt="Abdullah Habashy Logo">
+      </a>
+      <div class="nav-links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="section">
+    <div class="section-title">
+      <p>Case Study</p>
+      <h2>New Horizon Academy – End-to-End BI &amp; Data Warehouse</h2>
+    </div>
+
+    <!-- Executive Overview Card -->
+    <article class="card wide">
+      <h3>Executive Summary</h3>
+      <p>
+        Modern academic institutions face severe challenges when managing multi-branch operations: transactional systems (OLTP) are optimized for daily recording—such as student attendance, tuition payments, and exam scheduling—but fail when subjected to heavy analytical reporting.
+      </p>
+      <p>
+        In this flagship graduation project, I designed and implemented an enterprise-grade, end-to-end Business Intelligence solution for <strong>New Horizon Academy</strong>. The project follows an authentic production lifecycle: starting from hosting and running a live FastAPI ERP source system, orchestrating robust <strong>SSIS ETL pipelines</strong> (staging, data cleansing, and dimensional lookups), engineering an optimized <strong>Star Schema Data Warehouse</strong> in SQL Server, and delivering an executive, interactive <strong>Power BI</strong> analytical dashboard.
+      </p>
+      <div class="tags">
+        <span>FastAPI &amp; REST APIs</span>
+        <span>MS SQL Server (SSMS)</span>
+        <span>SSIS (Control Flow &amp; Data Flow)</span>
+        <span>Data Warehousing</span>
+        <span>Star Schema</span>
+        <span>Power BI</span>
+        <span>DAX</span>
+      </div>
+    </article>
+
+    <!-- Project High-level Architecture Flow -->
+    <article class="card wide" style="margin-top: 24px; border-left: 4px solid var(--accent-2);">
+      <h3>Data Pipeline Architecture</h3>
+      <p style="margin: 0; font-size: 15px; color: var(--text);">
+        <strong>FastAPI ERP Source</strong> &rarr; <strong>REST Endpoints / SQL Extraction</strong> &rarr; <strong>SSIS Staging &amp; Cleansing</strong> &rarr; <strong>SSIS Dimension &amp; Fact ETL (Lookups &amp; SKs)</strong> &rarr; <strong>Star Schema DW</strong> &rarr; <strong>Power BI Tabular Model</strong>
+      </p>
+    </article>
+
+    <!-- CHAPTER 1 -->
+    <div class="section-title" style="margin-top: 48px;">
+      <p>Phase 01</p>
+      <h2>Starting the Operational Source (FastAPI &amp; ERP System)</h2>
+    </div>
+
+    <article class="card wide">
+      <h3>1. Initializing the Local ERP Environment &amp; API Endpoints</h3>
+      <p>
+        The journey started by spinning up the local operational environment using Python and Uvicorn. The ERP service exposes full transactional tables and RESTful endpoints (<code>/openapi.json</code>, <code>/api/students</code>, <code>/api/attendance</code>, <code>/api/payments</code>, etc.) simulating an active enterprise environment.
+      </p>
+      <p>
+        This architecture allowed verifying live transactions and comparing operational summaries directly against raw endpoints before staging them into SQL Server.
+      </p>
+    </article>
+
+    <img
+      src="step1-cmd-fastapi.png"
+      alt="FastAPI Uvicorn Local Server Running via Command Prompt"
+      class="case-study-image"
+    />
+
+    <div class="grid two-col" style="margin-top: 20px;">
+      <article class="card">
+        <h3>Live ERP Web Dashboard</h3>
+        <p>
+          The operational web dashboard provides real-time counts across branches, enrolled students, batches, and transactions. Direct reporting on this OLTP engine would degrade transactional throughput.
+        </p>
+        <img
+          src="step2-erp-dashboard.png"
+          alt="Language Institute ERP Web Dashboard Interface"
+          class="case-study-image"
+        />
+      </article>
+
+      <article class="card">
+        <h3>OpenAPI / REST Endpoints Catalog</h3>
+        <p>
+          Every business entity—from placement tests to batch attendance logs—is fully documented and accessible via structured JSON schemas, validating incoming data structures.
+        </p>
+        <img
+          src="step3-erp-openapi.png"
+          alt="ERP OpenAPI JSON Catalog Schema"
+          class="case-study-image"
+        />
+      </article>
+    </div>
+
+    <!-- CHAPTER 2 -->
+    <div class="section-title" style="margin-top: 56px;">
+      <p>Phase 02</p>
+      <h2>Enterprise ETL Pipelines with SSIS</h2>
+    </div>
+
+    <article class="card wide">
+      <h3>2. Orchestrating Control Flow &amp; Staging Architecture</h3>
+      <p>
+        In SQL Server Integration Services (SSIS), I architected a multi-stage execution pipeline within <code>Package.dtsx</code>:
+      </p>
+      <ul>
+        <li><strong>Staging Preparation:</strong> Executing an <code>Execute SQL Task</code> to truncate temporary staging tables, guaranteeing idempotent, clean runs.</li>
+        <li><strong>Staging Data Flows:</strong> Extracting operational tables into raw staging tables with necessary data conversions.</li>
+        <li><strong>Dimension Loading:</strong> Populating Conformed Dimensions with surrogate keys.</li>
+        <li><strong>Fact Loading:</strong> Executing fact pipelines utilizing lookup transformations to resolve business keys into warehouse surrogate keys.</li>
+      </ul>
+    </article>
+
+    <img
+      src="step4-ssis-control-flow.png"
+      alt="SSIS Package Control Flow with Truncate, Staging, and Fact Loads"
+      class="case-study-image"
+    />
+
+    <article class="card wide" style="margin-top: 24px;">
+      <h3>3. Ingestion &amp; Staging Data Flow Task</h3>
+      <p>
+        The extraction data flow extracts tables across the operational database (Batches, Branches, Levels, Students, Teachers, Payments, Exam Results) into intermediate staging destinations with automated type mappings.
+      </p>
+    </article>
+
+    <img
+      src="step5-ssis-data-flow-staging.png"
+      alt="SSIS Data Flow Extracting ERP Tables to Staging"
+      class="case-study-image"
+    />
+
+    <article class="card wide" style="margin-top: 24px;">
+      <h3>4. Dimension Loading Data Flow</h3>
+      <p>
+        Dimensions were processed to ensure unique entity tracking and maintain structural consistency across branches, teachers, students, batches, and course levels.
+      </p>
+    </article>
+
+    <img
+      src="step6-ssis-load-dimensions.png"
+      alt="SSIS Data Flow Loading Dimensional Tables"
+      class="case-study-image"
+    />
+
+    <article class="card wide" style="margin-top: 24px;">
+      <h3>5. Fact Tables Population via Multi-Level Lookups</h3>
+      <p>
+        Populating the analytical fact tables required resolving relationships between operational primary keys and warehouse surrogate keys (SKs). Using Derived Column transformations and chained SSIS Lookups (Lookup Student, Lookup Teacher, Lookup Branch, Lookup Batch), the pipeline mapped transactional records directly into fact tables with sub-second processing.
+      </p>
+    </article>
+
+    <img
+      src="step7-ssis-lookups-fact.png"
+      alt="SSIS Multi-Lookup Pipeline for FactExamResult, FactAttendance, and FactPayment"
+      class="case-study-image"
+    />
+
+    <!-- CHAPTER 3 -->
+    <div class="section-title" style="margin-top: 56px;">
+      <p>Phase 03</p>
+      <h2>Data Warehouse Modeling (Star Schema)</h2>
+    </div>
+
+    <article class="card wide">
+      <h3>6. Dimensional Modeling &amp; Schema Refinement</h3>
+      <p>
+        Early iterations began with an operational schema that had redundant cross-links. Based on dimensional modeling best practices, I redesigned the schema into a robust, clean <strong>Star Schema</strong> comprising three core fact tables surrounded by shared dimension tables:
+      </p>
+      <ul>
+        <li><strong>Fact Tables:</strong> <code>FactPayment</code> (Tuition &amp; Fees), <code>FactAttendance</code> (Daily Attendance &amp; Delays), <code>FactExamResult</code> (Scores, Pass/Fail, Percentages).</li>
+        <li><strong>Conformed Dimensions:</strong> <code>DimDate</code>, <code>DimBranch</code>, <code>DimStudent</code>, <code>DimTeacher</code>, <code>DimBatch</code>, and <code>DimLevel</code>.</li>
+      </ul>
+    </article>
+
+    <img
+      src="step8-dw-star-schema.png"
+      alt="Optimized Star Schema Data Warehouse Model in Power BI"
+      class="case-study-image"
+    />
+
+    <!-- CHAPTER 4 -->
+    <div class="section-title" style="margin-top: 56px;">
+      <p>Phase 04</p>
+      <h2>Executive Power BI Dashboard &amp; DAX Analytics</h2>
+    </div>
+
+    <!-- Dashboard Cover / Intro Page -->
+    <div class="grid two-col">
+      <article class="card">
+        <h3>Interactive Dashboard Portal</h3>
+        <p>
+          The solution was branded for <strong>New Horizon Academy</strong>, complete with intuitive navigation buttons linking the Executive Overview to the underlying SSIS &amp; Data Warehouse track.
+        </p>
+        <img
+          src="step9-dashboard-cover.png"
+          alt="New Horizon Academy Analysis Dashboard Cover Page"
+          class="case-study-image"
+        />
+      </article>
+
+      <article class="card">
+        <h3>Performance Metrics Summary</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 10px;">
+          <div style="padding: 12px; background: rgba(56, 189, 248, 0.08); border-radius: 12px; border: 1px solid var(--line);">
+            <strong style="font-size: 20px; color: var(--text);">11.50K EGP</strong>
+            <p style="margin: 4px 0 0; font-size: 12px;">Total Collected Revenue</p>
+          </div>
+          <div style="padding: 12px; background: rgba(56, 189, 248, 0.08); border-radius: 12px; border: 1px solid var(--line);">
+            <strong style="font-size: 20px; color: var(--text);">80%</strong>
+            <p style="margin: 4px 0 0; font-size: 12px;">Overall Pass Rate</p>
+          </div>
+          <div style="padding: 12px; background: rgba(56, 189, 248, 0.08); border-radius: 12px; border: 1px solid var(--line);">
+            <strong style="font-size: 20px; color: var(--text);">71%</strong>
+            <p style="margin: 4px 0 0; font-size: 12px;">Average Attendance</p>
+          </div>
+          <div style="padding: 12px; background: rgba(56, 189, 248, 0.08); border-radius: 12px; border: 1px solid var(--line);">
+            <strong style="font-size: 20px; color: var(--text);">4</strong>
+            <p style="margin: 4px 0 0; font-size: 12px;">Active Academy Branches</p>
+          </div>
+        </div>
+        <p style="margin-top: 18px; font-size: 14px; color: var(--muted);">
+          Engineered using custom DAX formulas stored in a clean <code>Measures Table</code> (e.g., <code>[Pass Rate %]</code>, <code>[Attendance Rate %]</code>, <code>[Average Score]</code>).
+        </p>
+      </article>
+    </div>
+
+    <!-- Main Dashboard Screenshot -->
+    <article class="card wide" style="margin-top: 24px;">
+      <h3>Executive BI Dashboard View</h3>
+      <p>
+        The main analytics dashboard features branch-level revenue breakdown, monthly collections, attendance vs. absence rates per batch, average scores across language difficulty levels (German A1 to C1), and placement test distributions.
+      </p>
+    </article>
+
+    <img
+      src="step10-main-dashboard.png"
+      alt="New Horizon Academy Power BI Analytics Executive Dashboard"
+      class="case-study-image"
+    />
+
+    <!-- CHAPTER 5 -->
+    <div class="section-title" style="margin-top: 56px;">
+      <p>Phase 05</p>
+      <h2>Insights &amp; Strategic Recommendations</h2>
+    </div>
+
+    <div class="grid two-col">
+      <article class="card">
+        <h3>Key Business Insights</h3>
+        <ul>
+          <li><strong>Branch Revenue Variance:</strong> Nasr City (3,000 EGP) and Alexandria (4,000 EGP) lead tuition volume, while October branch represents an expansion opportunity (1,000 EGP).</li>
+          <li><strong>Academic Difficulty Curve:</strong> Student performance stays high in Beginner tiers (German A1 at 82 pts &amp; German A2 at 74 pts) but drops in advanced levels (German C1 at 48 pts), indicating critical syllabus hurdles.</li>
+          <li><strong>Batch Attendance Discrepancy:</strong> Batch B-A1-001 achieved 75% attendance while other cohorts experienced up to 100% absence in unmonitored cycles.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Strategic Recommendations</h3>
+        <ul>
+          <li><strong>Automated Attendance Alerts:</strong> Trigger notifications when batch attendance slips below 70% to prevent dropouts before exam finals.</li>
+          <li><strong>Academic Support Clinics:</strong> Introduce targeted coaching sessions before B2 and C1 assessments to reverse the score regression.</li>
+          <li><strong>Incremental ETL Scheduling:</strong> Deploy the SSIS package to SQL Server Agent to automate nocturnal delta loads, providing daily fresh dashboards without manual intervention.</li>
+        </ul>
+      </article>
+    </div>
+
+    <!-- Navigation Footer -->
+    <div style="margin-top: 48px; text-align: center;">
+      <a href="index.html#projects" class="btn primary">
+        &larr; Back to Portfolio Projects
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Abdullah Habashy. Data Analyst &amp; BI Developer Portfolio.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
