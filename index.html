@@ -794,5 +794,36 @@
   </footer>
 
   <script src="script.js"></script>
+    <script>
+      const shareBtn = document.getElementById('share-portfolio-btn');
+      if (shareBtn) {
+        shareBtn.addEventListener('click', async () => {
+          const shareData = {
+            title: 'Abdullah Habashy | Data Analyst & BI Developer',
+            text: 'Check out the data analytics and BI portfolio of Abdullah Habashy:',
+            url: window.location.href,
+          };
+
+          if (navigator.share) {
+            try {
+              await navigator.share(shareData);
+            } catch (err) {
+              // إلغاء المشاركة
+            }
+          } else {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+              const originalText = shareBtn.innerHTML;
+              shareBtn.innerHTML = '<span>Link Copied! &#10003;</span>';
+              setTimeout(() => {
+                shareBtn.innerHTML = originalText;
+              }, 2000);
+            });
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
+    
 </body>
 </html>
